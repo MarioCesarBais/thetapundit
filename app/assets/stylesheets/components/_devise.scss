@@ -1,0 +1,39 @@
+.form-check-label {
+  color: blue !important;
+}
+
+.devise-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    // border: 1px solid blue;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: column;
+    text-align: center;  
+    margin: auto;
+    background: black;
+}
+
+.devise-card .title {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  color:white;
+  font-weight: bold;
+  max-width: 580px;
+}
+
+.devise-card .content {
+  background: gray;
+  color: #000;
+  padding: 10px;
+  flex-grow: 1;
+  background-size: cover;
+  width: 100vw;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 1px;
+}

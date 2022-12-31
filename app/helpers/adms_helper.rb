@@ -1,0 +1,2 @@
+module AdmsHelper
+end

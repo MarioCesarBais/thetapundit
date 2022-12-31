@@ -1,1 +1,109 @@
 // Specific CSS for your home-page
+
+body {
+  background: linear-gradient(to right bottom, white,lightgrey);
+}
+
+.cards * {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-items: stretch;
+  width:100vw;
+}
+
+.card-home {
+  border: 3px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  min-width: 400px;
+}
+
+.cards-home {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-items: baseline;
+  align-content:stretch;
+}
+
+.card .title {
+  padding: 5px 0px;
+  display: flex;
+  justify-content: center;
+  min-height: 5rem;
+  max-height: 5rem;
+  flex-grow: 0;
+}
+
+.card .content {
+  padding: 10px;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+// @media (min-width: 910px) {
+//   // .cards-home {
+//   //   grid-template-columns: 1fr 1fr;
+//   // }
+//   // .card-home {
+//   //   max-width: 45vw;
+//   // }
+// }
+
+@media (max-width: 909px) {
+  // .cards-home {
+  //   grid-template-columns: 1fr;
+  //   max-width: 90vw;
+  // }
+  .laterais {
+    display: none;
+  }
+}
+
+.foto-inicio {
+  background: linear-gradient(135deg,lightgreen,rgb(226, 101, 226));
+  display: flex;
+  justify-content: center;
+}
+
+.foto-inicio .devise-card img {
+  max-width: 33vw;
+  max-height: 55vh;
+  min-height: 55vh;
+  min-width: 44vh;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#inicial * {
+  font-family: 'Parisienne', cursive;
+  color: black;
+  margin: 1vw;
+  text-align: center;
+  list-style-type: none;
+}
+
+#inicial {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: linear-gradient(135deg,lightgreen,rgb(226, 101, 226));
+  border-radius: 10px;
+  h1 {
+    margin-top: 1em;
+  }
+}
+
+#foto-central img {
+    max-height: 55vh;
+    min-height: 55vh;
+    min-width: 44vh;
+    flex-grow: 0;
+    flex-shrink: 0;
+}

@@ -1,0 +1,80 @@
+// Place all the styles related to the cursos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.curso-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+  background: gray;
+  justify-content: center;
+}
+
+@media(max-width: 992px) {
+  .curso-cards {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+@media(max-width: 768px) {
+  .curso-cards {
+    grid-template-columns: 1fr;
+  }
+  .curso {
+    margin: auto;
+    width: 66vw;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#img > img {
+  max-height: 80vh;
+  // width: 100%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#curso-descricao {
+  text-align: center;
+  color: black;
+}
+
+#inscrito {
+  background-color: red;
+}
+
+.curso-title {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 1px solid blue;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: column;
+    text-align: center;  
+    margin: auto;
+    background: black;
+    color:white
+}
+
+.curso > img {
+  max-width: 80vh;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.curso {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: center;
+  text-align: center;
+  max-width: 85vh;
+}

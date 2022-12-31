@@ -1,0 +1,2 @@
+module InscrsHelper
+end

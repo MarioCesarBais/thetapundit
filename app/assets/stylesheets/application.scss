@@ -5,8 +5,22 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
+// @import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+@import 'components/banner';
+@import 'components/footer';
+@import 'components/devise';
+
+@import 'pages/cursos';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/home';
+@import './adms.scss';
+
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+  }  
