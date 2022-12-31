@@ -1,38 +1,52 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="devise-card">
+  <h2 class='title mt-2'>Minhas Informações</h2>
+  <div class="col-11 content">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-inputs">
+        <p class='my-3'><%= "e-mail: #{current_user.email}" %></p>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :password,
+                    hint: "deixar em branco se não pretende alterar",
+                    required: false %>
+        <%= f.input :password_confirmation,
+                    required: false %>
+        <%= f.input :current_password,
+                    hint: "Precisamos da senha atual para confirmar alterações!",
+                    required: true,
+                    input_html: { autocomplete: "senha atual" } %>
+        <div class="row border border-primary rounded mx-5 pt-3">
+          <div class="col-sm-4">
+            <%= image_tag user_avatar(current_user,60), class: 'rounded-circle ml-5', width: 60 %>
+          </div>
+          <div class="col-sm-8">
+            <%= f.input :foto, as: :file %>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Atualizar",
+        class: 'btn btn-primary btn-lg active btn-lg m-5' %>
+      </div>
+
+      <div class="btn-group d-flex justify-content-center" role="group">
+        <%= link_to "Insatisfeito? Cancelar minha conta",
+          registration_path(resource_name),
+          method: :delete,
+          data: { confirm: "Certeza?" },
+          class: 'btn btn-danger btn-sm mx-5 mb-5',
+          type: 'button' %>
+
+        <%= link_to "Retornar", :back,
+          class: 'btn btn-warning btn-sm ml-5 mb-5 active',
+          type: 'button' %>
+      </div>
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div class="d-flex align-items-center">
-  <div>Unhappy?</div>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
 </div>
-
-<%= link_to "Back", :back %>
