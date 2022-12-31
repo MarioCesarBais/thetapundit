@@ -1,0 +1,39 @@
+<div class='devise-card'>
+    <h1 class='title mt-3'>PRONTUÁRIO</h1>
+    <div class='content col-11'>
+        <h2 class='bg-primary'>Paciente:
+            <%= @paciente.nome %>
+            <%= image_tag user_avatar(@paciente, 100) %>
+        </h2>
+    <% unless @prontuarios.nil? || @prontuarios.empty? %>
+        <h3 class='text-center bg-info'>Histórico</h3>
+        <table class="table table-bordered table-sm">
+            <tr>
+                <th scope="col" class='border border-dark'>Dia e Hora</th>
+                <th scope="col" class='border border-dark'>Anotação</th>
+                <th scope="col" class='border border-dark'>Ação</th>
+            </tr>
+            <ul>
+                <% @prontuarios.sort_by { |p| p.data_hora }.each do |consulta| %>
+                    <tr scope="row" class='border border-dark'>
+                        <td class='border border-dark'> <%= consulta.data_hora.localtime %> </td>
+                        <td class='border border-dark'> <%= consulta.anotacao %> </td>
+                        <td class='border border-dark'>
+                            <%= link_to 'Editar', edit_prontuario_path(consulta), class: 'btn btn-warning btn-sm mx-1', type: 'button' %>
+                            <%= link_to 'Excluir', prontuario_path(consulta), method: :delete, data: { confirm: "Certeza?" },
+                                class: 'btn btn-danger btn-sm mx-1', type: 'button' %>
+                        </td>
+                    </tr>
+                <% end %>
+            </ul>
+        </table>
+    <% end %>
+    <%= form_with model: @prontuario, url: prontuarios_path(@prontuario), method: :post, local: true do |form| %>
+        <p class='text-center'>"Anotação do dia:"</p>
+        <%= form.hidden_field :paciente_id, value: @paciente.id %>
+        <p class='text-center'><%= form.text_area :anotacao, size: "100x15", required: true %></p>
+        <p class='text-center'><%= form.submit "Gravar" %></p>
+    <% end %>
+
+    </div>
+</div>

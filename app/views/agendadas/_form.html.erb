@@ -1,0 +1,43 @@
+<h2 class='mt-5 text-center'>Operações com Agenda</h2>
+<%= form_with model: Agendada, url: distribui_path, method: :post, local: true do |form| %>
+  <div class="m-5">
+    <%= form.label :data_inicio, "Data Inicial:" %>
+    <span id='inicio'>
+      <%= form.date_field :data_inicio, as: :date, html5: true %>
+    </span>
+    <%= form.label :data_fim, "Data Final:" %>
+    <span id='fim'>
+      <%= form.date_field :data_fim, as: :date, html5: true %>
+    </span>
+  </div>
+  <% if current_user.role == 'admin' %>
+    <div class="m-5">
+      <%= form.label :hora_inicio, "Hora Inicial:" %>
+      <%= form.time_select :hora_inicio, default: {hour: 9, min: 0} %>
+      <%= form.label :hora_fim, "Hora Final:" %>
+      <%= form.time_select :hora_fim, default: {hour: 18, min: 0} %>
+    </div>
+    <div class="m-5">
+      <%= form.label :duracao, 'Duração da sessão em minutos:' %>
+      <%= form.number_field :duracao, value: 60 %>
+      <%= form.label :atend, 'Forma de atender:' %>
+      <%= form.select :atend, ['ambos', 'online', 'presencial'] %>
+    </div>
+    <div class="m-5">
+      <% %w(segunda terça quarta quinta sexta).each do |dia| %>
+        <%= form.check_box dia.to_sym, checked: true %>
+        <%= form.label dia.to_sym, dia %>
+      <% end %>
+      <% %w(sábado domingo).each do |dia| %>
+        <%= form.check_box dia.to_sym %>
+        <%= form.label dia.to_sym, dia %>
+      <% end %>
+    </div>
+  <% end %>
+  <div id='submit' class="m-5">
+    <% if current_user.role == 'admin' %>
+      <%= form.submit "Inserir Períodos na Agenda" %>
+    <% end %>
+    <%= form.submit 'Agendar' %>
+  </div>
+<% end %>

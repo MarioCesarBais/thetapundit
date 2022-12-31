@@ -1,0 +1,49 @@
+<div class='devise-card'>
+<% unless @agendadas.nil? || @agendadas.empty? %>
+  <h1 class='title mt-3'>Agenda de Sessões</h1>
+  <table class="table table-bordered table-sm content">
+    <tr>
+      <th scope="col" class='border border-dark text-center'>Dia e Hora</th>
+      <th scope="col" class='border border-dark text-center'>Cliente</th>
+      <th scope='col' class='border border-dark text-center'>Atendimento</th>
+      <% if current_user.role == 'admin' %>
+        <th scope="col" class='border border-dark text-center'>Ação</th>
+      <% end %>
+    </tr>
+      <ul>
+        <% @agendadas.each do |agendada| %>
+          <tr id=<%="#{agendada.data_hora.localtime.to_s.gsub(/[\/: ]/,"")}"%> scope="row" class='border border-dark line-to-select'>
+            <td class='border border-dark text-right'> <%= agendada.data_hora.localtime %> </td>
+            <td class='border border-dark text-center'>
+              <% if agendada.user %>
+                <%= User.find(agendada.user).nome %>
+                <%= image_tag user_avatar(User.find(agendada.user)) %>
+              <% end %>
+            </td>
+            <td scope="col" class='border border-dark text-center'>
+                <%= agendada.atend %>
+              </td>
+            <% if current_user.role == 'admin' %>
+              <td scope="col" class='border border-dark text-center'>
+                <div class="btn-group" role="group">
+                  <% if agendada.user %>
+                    <%= link_to 'Desmarcar', edit_agendada_path(agendada), class: 'btn btn-warning btn-sm mx-1', type: 'button' %>
+                  <% else %>
+                    <%= link_to 'Agendar', agendar_path(agendada), class: 'btn btn-warning btn-sm mx-1', type: 'button' %>
+                  <% end %>
+                  <%= link_to 'Excluir', agendada_path(agendada), method: :delete, data: { confirm: "Certeza?" },
+                    class: 'btn btn-danger btn-sm mx-1', type: 'button' %>
+                </div>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </ul>
+    </table>
+  <% else %>
+    <h1 class='title m-3'>Agenda Vazia</h1>
+  <% end %>
+  <div class='content'>
+    <%= render 'form' %>
+  </div>
+</div>

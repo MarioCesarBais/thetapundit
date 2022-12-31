@@ -1,0 +1,41 @@
+<div class='devise-card'>
+  <h1 class='title mt-2'>Curso</h1>
+  <div class="card content">
+    <div id='img'>
+      <%= image_tag @curso.foto %>
+    </div>
+    <p class = 'mx-auto my-2 font-weight-bolder'> <%= @curso.descricao %> </p>
+    <% unless @curso.inscr_inicio.nil? %>
+      <p class='mx-auto'> Inscrição: <%= @curso.inscr_inicio %> até <%= @curso.inscr_fim %>
+    <% end %>
+    <% unless @curso.real_inicio.nil? %>
+      || Realização: <%= @curso.real_inicio %> até <%= @curso.real_fim %> </p>
+    <% end %>
+    <% if current_user.role == 'admin' %>
+      <div class="btn-group" role="group" aria-label="Exemplo básico">
+        <%= link_to 'Editar', edit_curso_path(@curso),
+          class: 'btn btn-warning btn-sm',
+          type: 'button' %>
+        <%= link_to "Excluir",
+          curso_path(@curso),
+          method: :delete,
+          data: { confirm: "Confirma exclusão?" },
+          class: 'btn btn-danger btn-sm',
+          type: 'button' %>
+      </div>
+    <% else %>
+      <% if Inscr.where(user_id: current_user.id).where(curso_id: @curso.id).present? %>
+        <span id='inscrito' class='px-5'><strong>Inscrito</strong></span>
+      <% elsif @curso.inscr_inicio.present? && Date.today >= @curso.inscr_inicio %>
+        <% if @curso.inscr_fim.nil? || @curso.inscr_fim<= Date.today%>
+          <%= link_to 'Inscrever-se', new_inscr_path(@curso), class: 'btn btn-primary btn-sm', type: 'button' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<% if user_signed_in? && current_user.role == 'admin' %>
+  <div class="container mt-4">
+    <%= link_to 'Criar Curso', new_curso_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>

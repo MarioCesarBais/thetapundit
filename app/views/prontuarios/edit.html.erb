@@ -1,0 +1,16 @@
+<div class='devise-card'>
+    <h1 class='title mt-3'>PRONTUÁRIO</h1>
+    <div class='content col-11'>
+        <h2 class='bg-primary'>Paciente:
+            <%= @paciente.nome %>
+            <%= image_tag user_avatar(@paciente, 100) %>
+        </h2>
+        <%= form_with model: @prontuario, method: :patch, local: true do |form| %>
+            <p class='text-center'>"Anotação do dia:"</p>
+            <%= form.hidden_field :paciente_id, value: @paciente.id %>
+            <%= form.hidden_field :prontuario_id, value: @prontuario.id %>
+            <p class='text-center'><%= form.text_area :anotacao, size: "100x15", required: true %></p>
+            <p class='text-center'><%= form.submit "Gravar" %></p>
+        <% end %>
+    </div>
+</div>

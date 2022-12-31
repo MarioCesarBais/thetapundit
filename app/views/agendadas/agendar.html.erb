@@ -1,0 +1,31 @@
+<div class='devise-card'>
+  <h2 class='title mt-2'>Agendar Sessão</h2>
+  <% if @agendadas.nil? %>
+    <h3>Agenda Totalmente Preenchida. Favor contactar a Terapeuta!</h3>
+  <% else %>
+    <%= form_with model: Agendada, url: marcar_path, local: true, method: :post do |form| %>
+      <div class="content">
+        <%= form.label :data, "Data:" %>
+        <span id='data'>
+          <%= form.select :data, @agendadas.map { |data| data.data_hora.localtime.to_date }.to_set.to_a %>
+        </span>
+        <p> <%= form.label :hora, "Hora:" %>
+        <span id='hora'>
+          <%= form.select :hora, @agendadas.map { |data| data.data_hora.localtime }.sort %>
+        </span>
+        </p>
+        <% if current_user.role == 'admin' %>
+          <p> <%= form.label :user, "Cliente:" %>
+          <%= form.select :user, User.all.map { |user| [user.nome, user.id] }.sort %> </p>
+        <% end %>
+        <p>
+          <%= form.label :atend, "Forma de Atendimento:" %>
+          <span id='atend'>
+            <%= form.select :atend, %w(ambos online presencial) %>
+          </span>
+        </p>
+        <p> <%= form.submit 'Agendar' %> </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

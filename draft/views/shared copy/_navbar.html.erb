@@ -13,23 +13,6 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link btn btn-primary" %>
         </li>
-        <li class='nav-item'>
-          <%= link_to "Constelação", constelacao_path, class: "nav-link btn btn-warning" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Cursos", cursos_path, class: "nav-link btn btn-success" %>
-        </li>
-        <li class="nav-item dropdown btn btn-info">
-          <div class="dropdown">
-            <a style="text-decoration:none" class="dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Atendimentos
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Sessões Agendadas", agendadas_path, class: "dropdown-item btn btn-info" %>
-              <%= link_to "Agendar Sessão", agendar_path, class: "dropdown-item btn btn-info" %>
-            </div>
-          </div>
-        </li>
         <% if current_user.role == 'admin' %>
           <li class="nav-item dropdown btn btn-secondary">
             <div class="dropdown">
@@ -53,21 +36,6 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class='nav-item'>
-          <%= link_to "Constelação", constelacao_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Cursos", cursos_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Atendimentos", agendar_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Inscrever-se", new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

@@ -1,0 +1,6 @@
+<%= form_with model: @prontuario, url: prontuarios_path(@prontuario), method: :post, local: true do |form| %>
+    <p class='text-center'>"Anotação do dia:"</p>
+    <%= form.hidden_field :paciente_id, value: @paciente.id %>
+    <p class='text-center'><%= form.text_area :anotacao, size: "100x15", required: true %></p>
+    <p class='text-center'><%= form.submit "Gravar" %></p>
+<% end %>

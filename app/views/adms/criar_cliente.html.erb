@@ -1,0 +1,46 @@
+<div class='devise-card'>
+  <h2 class='title mt-2'>Administrador Cadastrando Cliente</h2>
+  <div class="content text-left col-11">
+    <%= form_with url: inserir_cliente_path, method: :post, local: true do |form| %>
+      <div class="form-inputs">
+        <h6 class='m-2'>
+        <%= form.label :email, 'e-mail:' %>
+        <%= form.email_field :email %>
+        <%= form.check_box :fake_email?, checked: false %>
+        <%= form.label :fake_email?, 'Gerar e-mail aleatório?' %>
+        </h6>
+
+        <h6 class='m-2'>
+          <%= form.label :nome, 'Nome:' %>
+          <%= form.text_field :nome %>
+        </h6>
+
+        <h6 class='m-2'>
+          <%= form.label :telefone, 'Telefone:' %>
+          <%= form.telephone_field :telefone %>
+        </h6>
+
+        <h6 class='m-2'>
+          <%= form.label :cpf, 'CPF:' %>
+          <%= form.number_field :cpf %>
+        </h6>
+
+        <h6 class='m-2'>
+          <%= form.label :password, 'Senha:' %>
+          <%= form.password_field :password %>
+          <%= form.check_box :gerar_senha_aleatoria?, checked: false %>
+          <%= form.label :gerar_senha_aleatoria, 'Gerar Senha aleatória?' %>
+          <p>
+            <%= form.label :password_confirmação, 'Confirmar senha' %>
+            <%= form.password_field :password_confirmação %>
+          </p>
+        </h6>
+
+        <%= form.hidden_field :role, value: "cliente" %>
+      </div>
+      <div id='submit' class="m-3">
+        <%= form.submit 'Cadastrar' %>
+      </div>
+    <% end %>
+  </div>
+</div>

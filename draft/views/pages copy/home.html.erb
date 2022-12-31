@@ -1,0 +1,38 @@
+<% array = foto_aleatoria(:v, 4) %>
+<div class='foto-inicio'>
+    <div class='devise-card'>
+        <%= image_tag(array[0]) %>
+    </div>
+    <div class='devise-card laterais'>
+        <%= image_tag(array[1]) %>
+    </div>
+    <div class='devise-card' id='foto-central'>
+        <%= image_tag 'Bruna.jpg' %>
+    </div>
+    <div class='devise-card'>
+        <%= image_tag(array[2]) %>
+    </div>
+    <div class='devise-card laterais'>
+        <%= image_tag(array[3]) %>
+    </div>
+</div>
+<div id='inicial'>
+    <h1>Gratidão por sua visita!</h1>
+    <h2>Eu, Bruna Bais, terapeuta:</h2>
+    <ul>
+        <li>acredito na força individual para ofertar energia positiva e agregar forças para superar nossas aflições!</li>
+        <li>ofereço técnicas e ferramentas para lidar com as emoções e transformá-lo em gerador de bons fluidos em sua volta!</li>
+    </ul>
+</div>
+<div class='d-flex cards-home'>
+    <div class='devise-card card'>
+        <div class='title'>
+            <h1 class='mt-3 text-center title'>Nossas Histórias</h1>
+        </div>
+        <h6 class='p-5 col-12 text-justify content' id='depoimento'>
+            Bruna,<br><br>
+            Eu tinha prometido que não ia mais chorar, não ia mais sofrer, pq já não preciso disso. Mas hoje, após a terapia com você, me veio uma lágrima doce como o céu, uma lágrima de graça, de uma imensa gratidão a vida, a tanto que recebi e recebo da vida, veio nessa lágrima tanto amor, tanto amor que transbordou do fundo da minha alma o mais bonito, o mais puro de mim, um desejo imenso de que todos possam compartilhar minhas alegrias e vitórias, que todos possam também se libertar, que todos possam conquistar a iluminação, que todos sejam amor! É inexplicável o sentimento e eu agradeço a você por me proporcionar tanto! Gratidão minha irmã! Gratidão imensa. Muito amor, muito axé, muito haux, muita luz no seu caminho! 11/03/2022
+        </h6>
+    </div>
+</div>
+<%= render 'devise/shared/cards' %>

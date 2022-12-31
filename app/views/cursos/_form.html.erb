@@ -1,0 +1,20 @@
+<div class="form-inputs m-1">
+  <%= simple_form_for(@curso, html: {novalidate: false}) do |f| %>
+    <%= f.input :nome, required: true %>
+    <%= f.input :descricao, label: 'Descrição:', required: true %>
+    <%= f.input :inscr_inicio, as: :date, label: 'Inscrição - Início:', html5: true %>
+    <%= f.input :inscr_fim, as: :date, label: 'Inscrição - Final:', html5: true %>
+    <%= f.input :real_inicio, as: :date, label: 'Início do Curso:', html5: true %>
+    <%= f.input :real_fim, as: :date, label: 'Término do Curso:', html5: true %>
+    <%= f.input :foto, as: :file, label: 'Foto do Curso', required: true %>
+
+    <div class="btn-group" role="group">
+      <% acao = controller.action_name == 'edit' ? 'Editar' : 'Criar' %>
+      <%= f.button :submit, acao, class: 'btn btn-primary btn-lg' %>
+
+      <%= link_to 'Retornar', :back,
+        class: 'btn btn-warning btn-lg',
+        type: 'button' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<div class="devise-card">
+<h1 class='mt-2 ml-5 title'>Cadastro de Cliente pelo Administrador</h1>
+<% if @user.id %>
+    <h2 class="col-12 content">Cliente Cadastrado com Sucesso</h2>
+    <p>id: <%= @user.id %></p>
+    <p>e-mail: <%= @user.email %></p>
+    <p>Nome: <%= @user.nome %></p>
+    <p>Telefone: <%= @user.telefone %></p>
+    <p>CPF: <%= @user.cpf %></p>
+<% else %>
+    <h2 class="col-12 content">Falha no Cadastramento</h2>
+<% end %>

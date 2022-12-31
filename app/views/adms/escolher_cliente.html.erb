@@ -1,0 +1,10 @@
+<div class='devise-card'>
+    <h1 class='title mt-2'>Prontuário: Escolher Cliente<h1>
+    <div class='content' id='escolher-cliente-p'>
+        <%= form_with url: new_prontuario_path, method: :get, local: true do |form|%>
+            <p class='mt-5'> <%= form.label :user, "Cliente:" %>
+            <%= form.select :paciente, User.all.map { |paciente| [paciente.nome, paciente.id] }.sort %> </p>
+            <%= form.submit 'Ver Prontuário', class: 'mt-5' %>
+        <% end %>
+    </div>
+</div>

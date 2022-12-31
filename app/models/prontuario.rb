@@ -1,0 +1,2 @@
+class Prontuario < ApplicationRecord
+end
