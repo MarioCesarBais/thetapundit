@@ -1,0 +1,2 @@
+class ProntuariosController < ApplicationController
+end

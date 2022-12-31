@@ -1,0 +1,2 @@
+class InscrsController < ApplicationController
+end
