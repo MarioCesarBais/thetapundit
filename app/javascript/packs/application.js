@@ -3,23 +3,18 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-// import "@hotwired/turbo-rails" // original do Rails 7
-
-
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("./channels")
-require('./agendadas/index')
-require('./agendadas/agendar')
+require("channels")
+require('agendadas/index')
+require('agendadas/agendar')
 
 import 'bootstrap';
 
-import { loadDynamicBannerText } from './components/banner';
-import { initUpdateNavbarOnScroll } from './components/navbar';
-import { inicioP, fimP } from './agendadas/index';
-import { horas } from './agendadas/agendar';
-
-console.log("Executei JS!!!")
+import { loadDynamicBannerText } from '../components/banner';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { inicioP, fimP } from '../agendadas/index';
+import { horas } from '../agendadas/agendar';
 
 const inicio = document.getElementById('inicio');
 const fim = document.getElementById('fim');

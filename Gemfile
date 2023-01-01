@@ -56,6 +56,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "pundit"
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'erb_lint' # marketplace est linter
+# gem 'turbolinks' # , '~> 2.5', '>= 2.5.3' # https://rubygems.org/gems/turbolinks/versions/2.5.3?locale=pt-BR
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
