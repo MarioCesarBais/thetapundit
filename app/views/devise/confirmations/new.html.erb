@@ -1,5 +1,6 @@
 <div class="devise-card col-12 ">
   <h2 class='mt-1 title'><%= t(".resend_confirmation_instructions") %></h2>
+  <div class='content'>
   <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <%= f.error_notification %>
     <%= f.full_error :confirmation_token %>
@@ -14,5 +15,6 @@
       <%= f.button :submit, t(".resend_confirmation_instructions"), class: 'btn btn-primary btn-sm m-3' %>
     </div>
   <% end %>
+  </div>
   <%= render "devise/shared/links" %>
 </div>
