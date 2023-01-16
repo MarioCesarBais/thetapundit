@@ -1,6 +1,7 @@
 <div class="devise-card col-12 ">
   <h2 class='mt-1 title'><%= t(".resend_unlock_instructions") %></h2>
 
+  <div class='content col-12'>
   <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
     <%= f.error_notification %>
     <%= f.full_error :unlock_token %>
@@ -13,9 +14,12 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, t(".resend_unlock_instructions"), class: 'btn btn-primary btn-sm m-3' %>
+      <%= f.button :submit, t(".resend_unlock_instructions"), class: "btn btn-primary btn-sm m-3" %>
     </div>
   <% end %>
 
+  </div>
+
   <%= render "devise/shared/links" %>
+  
 </div>

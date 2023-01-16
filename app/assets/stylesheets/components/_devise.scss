@@ -43,18 +43,13 @@
   max-width: 300px;
 }
 
-.user_email, .user_password {
-  margin: 3rem;
-  .email, .password {
-    background-color: #167FFB;
-    padding: 0 2rem 0 2rem;
-    border-radius: 3px;
-  }
+.form-text {
+  color: darkblue;
 }
 
 .form-check {
   display: inline-flex;
   input {
-    margin-right:  1rem;
+    margin-right:  0.5rem;
   }
 }
