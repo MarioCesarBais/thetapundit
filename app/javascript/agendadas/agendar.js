@@ -18,12 +18,4 @@ const horas = (() => {
     $('#hora').trigger("chosen:updated");
 });
 
-// const hora_sem_data = (() => {
-//     const hora = document.getElementById('hora');
-//     if (hora) const eh = hora.querySelector('select');
-//     if (eh) const h = eh.options;
-
-//     Array.apply(null, h).forEach(element => { element.innerText = element.value.substring(11, 16); });
-// })
-
 export { horas }

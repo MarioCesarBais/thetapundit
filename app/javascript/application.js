@@ -8,18 +8,16 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("./channels")
+// require("./channels")
 require('./agendadas/index')
 require('./agendadas/agendar')
 
 import 'bootstrap';
 
 import { loadDynamicBannerText } from './components/banner';
-import { initUpdateNavbarOnScroll } from './components/navbar';
+// import { initUpdateNavbarOnScroll } from './components/navbar';
 import { inicioP, fimP } from './agendadas/index';
 import { horas } from './agendadas/agendar';
-
-console.log("Executei JS!!!")
 
 const inicio = document.getElementById('inicio');
 const fim = document.getElementById('fim');
@@ -27,7 +25,7 @@ const data = document.getElementById('data');
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
-  initUpdateNavbarOnScroll();
+  // initUpdateNavbarOnScroll();
   if (inicio) inicio.addEventListener('change', () => { inicioP(inicio) });
   if (fim) fim.addEventListener('change', () => { fimP(fim) });
   if (data) data.addEventListener('change', () => { horas(data) });
