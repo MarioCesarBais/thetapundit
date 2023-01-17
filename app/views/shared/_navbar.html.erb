@@ -44,7 +44,9 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <%= image_tag user_avatar(current_user,40), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <img src="http://gravatar.com/avatar/7b5ceaf31db449b2f5645037b20615d0\" alt="Gravatar\" width="40" height="40" />
+          <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%image_tag(user_avatar(current_user,40))%>
+          <%# <%= image_tag(user_avatar(current_user,40), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Minhas Informações", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Encerrar Sessão", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

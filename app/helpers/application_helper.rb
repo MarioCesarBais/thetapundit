@@ -36,12 +36,12 @@ module ApplicationHelper
     FOTOS[format].shuffle[(0..[FOTOS[format].length - 1, length].min)]
   end
 
-  # def user_avatar(user, size=40)
-  #   if user.foto.attached?
-  #     user.foto.variant(resize: "#{size}x#{size}!")
-  #   else
-  #     gravatar_image_url(user.email, size: size)
-  #   end
-  # end
+  def user_avatar(user, size=40)
+    if user.foto.attached?
+      user.foto.variant(resize: "#{size}x#{size}!")
+    else
+      gravatar_image_tag(user.email, size: size)
+    end
+  end
 
 end
