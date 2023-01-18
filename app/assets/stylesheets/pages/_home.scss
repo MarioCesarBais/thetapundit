@@ -48,20 +48,7 @@ body {
   object-fit: cover;
 }
 
-// @media (min-width: 910px) {
-//   // .cards-home {
-//   //   grid-template-columns: 1fr 1fr;
-//   // }
-//   // .card-home {
-//   //   max-width: 45vw;
-//   // }
-// }
-
 @media (max-width: 909px) {
-  // .cards-home {
-  //   grid-template-columns: 1fr;
-  //   max-width: 90vw;
-  // }
   .laterais {
     display: none;
   }
@@ -106,4 +93,8 @@ body {
     min-width: 44vh;
     flex-grow: 0;
     flex-shrink: 0;
+}
+
+#inicial ul li {
+  font-size: larger;
 }

@@ -1,27 +1,23 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand btn btn-dark" do %>
       <%= image_tag "theta.png" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">Aqui!!!!!!!!!!!!!!!!</span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link btn btn-secondary" %>
           </li>
           <li class='nav-item'>
             <%= link_to "Constelação", constelacao_path, class: "nav-link btn btn-warning" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cursos", cursos_path, class: "nav-link" %>
+            <%= link_to "Cursos", cursos_path, class: "nav-link btn btn-primary" %>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown btn btn-sm btn-success">
             <%= image_tag "atendimento.jpg", class: "avatar dropdown-toggle", id: "navbarDropdownAtend", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Sessões Agendadas", agendadas_path, class: "dropdown-item btn btn-info" %>
@@ -29,7 +25,9 @@
             </div>
           </li>
 
-          <% if current_user.role == 'admin' %>
+        <% if user_signed_in? %>
+
+          <% if current_user.role == "admin" %>
           <li class="nav-item dropdown btn btn-secondary">
             <div class="dropdown">
               <a style="text-decoration:none" class="dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,19 +41,16 @@
           </li>
           <% end %>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown btn btn-dark btn-sm">
             <%= image_tag user_avatar(current_user, 40), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
               <%= link_to "Minhas Informações", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Encerrar Sessão", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
-
-
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-light" %>
           </li>
         <% end %>
       </ul>
