@@ -38,7 +38,7 @@ module ApplicationHelper
 
   def user_avatar(user, size=40)
     if user.foto.attached?
-      user.foto.variant(resize: "#{size}x#{size}!")
+      user.foto.variant(resize: 40)
     else
       gravatar_image_url(user.email)
     end

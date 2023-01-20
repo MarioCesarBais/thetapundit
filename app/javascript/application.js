@@ -12,6 +12,8 @@ require("./channels")
 require('./agendadas/index')
 require('./agendadas/agendar')
 
+import * as ActiveStorage from "@rails/activestorage"
+
 import 'bootstrap';
 
 import { loadDynamicBannerText } from './components/banner';
@@ -23,6 +25,7 @@ const fim = document.getElementById('fim');
 const data = document.getElementById('data');
 
 document.addEventListener('turbolinks:load', () => {
+  ActiveStorage.start()
   loadDynamicBannerText();
   if (inicio) inicio.addEventListener('change', () => { inicioP(inicio) });
   if (fim) fim.addEventListener('change', () => { fimP(fim) });
