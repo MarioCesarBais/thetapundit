@@ -7,11 +7,11 @@
       <div class="content">
         <%= form.label :data, "Data:" %>
         <span id='data'>
-          <%= form.select :data, @agendadas.map { |data| data.data_hora.localtime.to_date }.to_set.to_a %>
+          <%= form.select :data, @agendadas.map { |data| data.data_hora.localtime.strftime("%d/%m/%Y") }.to_set.to_a %>
         </span>
         <p> <%= form.label :hora, "Hora:" %>
         <span id='hora'>
-          <%= form.select :hora, @agendadas.map { |data| data.data_hora.localtime }.sort %>
+          <%= form.select :hora, @agendadas.map { |data| data.data_hora.localtime.strftime("%H:%M") }.sort %>
         </span>
         </p>
         <% if current_user.role == 'admin' %>

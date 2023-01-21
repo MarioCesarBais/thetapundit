@@ -36,6 +36,10 @@
   font-weight: bold;
   margin: 1px;
   text-align: justify;
+  justify-content: center;
+  input {
+    border-radius: 10px;
+  }
 }
 
 .devise-buttons * {
@@ -53,4 +57,10 @@
   input {
     margin-right:  0.5rem;
   }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

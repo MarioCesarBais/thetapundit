@@ -20,6 +20,7 @@
 @import 'pages/contact';
 @import 'pages/home';
 @import 'adms';
+@import 'prontuarios';
 
 html {
   overflow: -moz-scrollbars-vertical;
@@ -28,4 +29,8 @@ html {
 
 input {
   border-radius: 10px;
+}
+
+img {
+  border-radius: 5px;
 }
