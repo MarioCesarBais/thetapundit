@@ -21,7 +21,7 @@
     <div class="m-5">
       <%= form.label :duracao, 'Duração da sessão em minutos:' %>
       <%= form.number_field :duracao, value: 60 %>
-      <%= form.label :atend, 'Forma de atender:' %>
+      <%= form.label :atend, 'Forma de atender:', class: 'mt-3' %>
       <%= form.select :atend, ['ambos', 'online', 'presencial'] %>
     </div>
     <div class="m-5">

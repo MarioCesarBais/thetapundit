@@ -19,13 +19,13 @@
 @import 'pages/about';
 @import 'pages/contact';
 @import 'pages/home';
-@import './adms.scss';
+@import 'adms';
 
 html {
-    overflow: -moz-scrollbars-vertical; 
-    overflow-y: scroll;
-  }
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
 
-  input {
-    border-radius: 10px;
-  }
+input {
+  border-radius: 10px;
+}
