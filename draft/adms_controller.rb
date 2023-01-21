@@ -1,2 +1,0 @@
-class AdmsController < ApplicationController
-end

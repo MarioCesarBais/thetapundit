@@ -1,2 +1,0 @@
-class InscrsController < ApplicationController
-end

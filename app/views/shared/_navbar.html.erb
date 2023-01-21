@@ -8,7 +8,7 @@
       <ul class="navbar-nav me-auto">
 
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link btn btn-secondary" %>
+            <%= link_to "Home", root_path, class: "nav-link btn btn-light" %>
           </li>
           <li class='nav-item'>
             <%= link_to "Constelação", constelacao_path, class: "nav-link btn btn-warning" %>
@@ -16,6 +16,18 @@
           <li class="nav-item">
             <%= link_to "Cursos", cursos_path, class: "nav-link btn btn-primary" %>
           </li>
+
+          <% if user_signed_in? and current_user.role == "admin" %>
+
+            <li class="nav-item dropdown btn btn-sm btn-danger">
+            <%= image_tag "Cliente.png", class: "avatar dropdown-toggle", id: "navbarDropdownCliente", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Cadastrar", criar_cliente_path, class: "dropdown-item btn btn-info" %>
+              <%= link_to "Ver Prontuários", escolher_cliente_path, class: "dropdown-item btn btn-info" %>
+            </div>
+            </li>
+
+          <% end %>
 
           <li class="nav-item dropdown btn btn-sm btn-success">
             <%= image_tag "atendimento.jpg", class: "avatar dropdown-toggle", id: "navbarDropdownAtend", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,20 +38,6 @@
           </li>
 
         <% if user_signed_in? %>
-
-          <% if current_user.role == "admin" %>
-          <li class="nav-item dropdown btn btn-secondary">
-            <div class="dropdown">
-              <a style="text-decoration:none" class="dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Clientes
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Cadastrar", criar_cliente_path, class: "dropdown-item btn btn-info" %>
-                <%= link_to "Ver Prontuários", escolher_cliente_path, class: "dropdown-item btn btn-info" %>
-              </div>
-            </div>
-          </li>
-          <% end %>
 
           <li class="nav-item dropdown btn btn-dark btn-sm">
             <%= image_tag user_avatar(current_user, 40), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
