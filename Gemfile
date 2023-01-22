@@ -59,10 +59,13 @@ gem 'erb_lint' # marketplace est linter
 gem 'image_processing', '~> 1.2'
 # gem 'turbolinks' # , '~> 2.5', '>= 2.5.3' # https://rubygems.org/gems/turbolinks/versions/2.5.3?locale=pt-BR
 
+# https://kitt.lewagon.com/camps/721/lectures/content/lectures/rails/hosting-image-upload/index.html?title=Hosting+%26+Image+Upload#/4/5
+gem "cloudinary"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "dotenv-rails"
+  gem "dotenv-rails", groups: [:development, :test]
 
 end
 
