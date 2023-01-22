@@ -2,7 +2,8 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="/assets/theta.png">
+    <%# <link rel="shortcut icon" href="/assets/theta.png">  tornou-se desnecessário %>
+    
     <title>Terapias Reconstrutoras</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +11,9 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%# https://www.railscoder.com/articles/adding-a-favicon-to-your-rails-7-app %>
+    <%= favicon_link_tag asset_path('theta.png') %>
 
 <% # Fontes %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
