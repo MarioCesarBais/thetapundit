@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9BCXZM1LN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-C9BCXZM1LN');
+    </script>
+
     <meta charset="utf-8">
-    <%# <link rel="shortcut icon" href="/assets/theta.png">  tornou-se desnecessário %>
+    <% # <link rel="shortcut icon" href="/assets/theta.png">  tornou-se desnecessário %>
     
     <title>Terapias Reconstrutoras</title>
 
@@ -12,10 +23,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# https://www.railscoder.com/articles/adding-a-favicon-to-your-rails-7-app %>
-    <%= favicon_link_tag asset_path('theta.png') %>
+    <% # https://www.railscoder.com/articles/adding-a-favicon-to-your-rails-7-app %>
+    <%= favicon_link_tag asset_path("theta.png") %>
 
-<% # Fontes %>
+    <% # Fontes %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
@@ -24,7 +35,11 @@
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
 
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%# <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true -- não funciona!!! %>
+    <% # <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true -- não funciona!!! %>
+
+    <% # recomendado por chatgpt %>
+    <meta name="googlebot" content="index, follow">
+
 
   </head>
 
