@@ -1,18 +1,18 @@
 <div class='container mt-5 text-center'>
   <h1>Agenda de Eventos</h1>
-  <%= month_calendar() do |date| %>
-    <div class='day'>
-      <%= link_to date.day, eventos_path(date.day) %>
+  <%= month_calendar(events: @meetings) do |date, meetings| %>
+  <%= date.day %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.titulo %>
     </div>
   <% end %>
+<% end %>
 </div>
 
-<div>
-  
-</div>
-
-<% if user_signed_in? && current_user.role == 'admin' %>
+<% if user_signed_in? && current_user.role == "admin" %>
   <div class="container mt-4">
-    <%= link_to 'Criar Evento', new_evento_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "Criar Evento", new_evento_path, class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
