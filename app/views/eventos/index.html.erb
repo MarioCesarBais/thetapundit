@@ -1,14 +1,14 @@
 <div class='container mt-5 text-center'>
   <h1>Agenda de Eventos</h1>
-  <%= month_calendar(events: @meetings) do |date, meetings| %>
-  <%= date.day %>
+  <%= month_calendar(events: @meetings, attribute: :inicio, end_attribute: :fim) do |date, meetings| %>
+    <%= date.day %>
 
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.titulo %>
-    </div>
+    <% meetings.each do |meeting| %>
+      <div>
+        <%= meeting.titulo %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
 <% if user_signed_in? && current_user.role == "admin" %>
