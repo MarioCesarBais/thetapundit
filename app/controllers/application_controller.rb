@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  # include Pundit
-  # recomendação do rails: linha acima deprecada; substituída pela linha abaixo:
+
   include Pundit::Authorization
 
   protect_from_forgery with: :exception

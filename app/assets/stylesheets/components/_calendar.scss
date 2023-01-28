@@ -1,0 +1,20 @@
+.simple-calendar th {
+    text-align: center;
+    // font-weight: bolder;
+}
+
+.simple-calendar {
+    .day {
+        font-weight: bold;
+        font-size: xx-large;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    .wday-0, .wday-6 {
+        background: linear-gradient(135deg, red, pink);
+    }
+
+}

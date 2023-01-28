@@ -8,12 +8,15 @@
 // @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import "simple_calendar";
+
 // Your CSS partials
 @import "components/index";
 @import 'components/banner';
 @import 'components/footer';
 @import 'components/devise';
 @import 'components/flash';
+@import 'components/calendar';
 
 @import 'pages/cursos';
 @import 'pages/about';
@@ -33,4 +36,8 @@ input {
 
 img {
   border-radius: 5px;
+}
+
+button:hover {
+  background-color: aqua;
 }
