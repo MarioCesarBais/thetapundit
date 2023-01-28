@@ -33,7 +33,7 @@ body {
   align-content:stretch;
 }
 
-.card .title {
+.card1 .title {
   padding: 5px 0px;
   display: flex;
   justify-content: center;
@@ -42,7 +42,7 @@ body {
   flex-grow: 0;
 }
 
-.card .content {
+.card1 .content {
   padding: 10px;
   flex-grow: 1;
   object-fit: cover;

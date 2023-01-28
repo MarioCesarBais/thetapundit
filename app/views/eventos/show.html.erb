@@ -1,1 +1,18 @@
-<h1>Evento do dia: <%= @evento.inicio %></h1>
+<div class='card text-center mb-3 border border-primary rounded-5 container'>
+    <div class="card-body">
+        <h1 class="card-title border border-primary rounded-5">Evento do dia: <%= @evento.inicio.strftime("%d/%m/%Y") %></h1>
+        <div class='card-text'>
+            <h2><%= @evento.titulo %></h2>
+            <h3><%= @evento.descricao %></h3>
+            <div class='d-flex justify-content-around border border-primary rounded-5'>
+                <p> <%= "Início: #{@evento.inicio.strftime('%d/%m/%Y')}" if @evento.inicio %></p>
+                <p> <%= "Fim: #{@evento.fim.strftime('%d/%m/%Y')}" if @evento.fim %></p>
+                <p> <%= "Hora de Início: #{@evento.hora_inicio.strftime('%H:%M')}" if @evento.hora_inicio %></p>
+                <p> <%= "Hora de Término: #{@evento.hora_fim.strftime('%H:%M')}" if @evento.hora_fim %></p>
+            </div>
+        </div>
+    </div>
+    <div class="container m-4">
+        <%= link_to 'Retornar Agenda de Eventos', eventos_path, class: 'btn btn-primary btn-lg rounded-5' %>
+    </div>
+</div>

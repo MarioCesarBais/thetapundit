@@ -12,11 +12,32 @@ class EventosController < ApplicationController
   def show
   end
 
+  def new
+    @evento = Evento.new
+    authorize @evento
+  end
+
+  def create
+    @evento = Evento.new(evento_params)
+    if @evento.save
+      authorize @evento
+      redirect_to evento_path(@evento), notice: "evento criado com sucesso!"
+    else
+      authorize @evento
+      render 'new', alert: 'evento não pôde ser salvo! Verificar!'
+    end
+  end
+
+
   private
 
     def set_evento
         @evento = Evento.find(params[:id])
         authorize @evento
+    end
+
+    def evento_params
+      params.require(:evento).permit(:titulo, :descricao, :inicio, :fim, :hora_inicio, :hora_fim, :foto)
     end
 
 end

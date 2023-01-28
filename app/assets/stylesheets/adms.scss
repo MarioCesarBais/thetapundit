@@ -6,7 +6,7 @@
     font-weight: bold;
 }
 
-.card {
+.card1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -19,7 +19,7 @@
     background: black;
 }
 
-.card .title {
+.card1 .title {
     display: flex;
     justify-content: center;
     color:white;
@@ -32,7 +32,7 @@
     background: black;
   }
 
-  .card .content {
+  .card1 .content {
     background: gray;
     color: #000;
     padding: 10px;
