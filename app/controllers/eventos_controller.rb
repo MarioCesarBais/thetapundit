@@ -12,11 +12,11 @@ class EventosController < ApplicationController
   def show
   end
 
-  # private
+  private
 
-  #   def set_evento
-  #       @evento = Evento.find(params[:id])
-  #       authorize @evento
-  #   end
+    def set_evento
+        @evento = Evento.find(params[:id])
+        authorize @evento
+    end
 
 end

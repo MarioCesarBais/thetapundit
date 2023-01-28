@@ -17,6 +17,7 @@
 @import 'components/devise';
 @import 'components/flash';
 @import 'components/calendar';
+@import 'components/carousel';
 
 @import 'pages/cursos';
 @import 'pages/about';
@@ -36,8 +37,4 @@ input {
 
 img {
   border-radius: 5px;
-}
-
-button:hover {
-  background-color: aqua;
 }

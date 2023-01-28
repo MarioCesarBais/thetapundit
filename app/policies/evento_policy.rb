@@ -8,6 +8,10 @@ class EventoPolicy < ApplicationPolicy
     def index?
       true
     end
+
+    def show?
+      true
+    end
   
     def create?
       @user.role == 'admin' # somente administrador pode criar evento
