@@ -74,7 +74,6 @@ class AgendadasController < ApplicationController
     else
       @agendadas = Agendada.all.select { |agendada| agendada.data_hora > Time.now && agendada.user.nil? }.sort_by { |agendada| agendada.data_hora }
     end
-    # render 'agendar'
   end
 
   def marcar
@@ -83,7 +82,7 @@ class AgendadasController < ApplicationController
       return
     end
     params.require(:agendada).permit(:data, :hora, :user, :atend)
-    @agendada = Agendada.find_by(data_hora: params['agendada']['hora'].to_time)
+    @agendada = Agendada.find_by(data_hora: "#{params['agendada']['data']} #{params['agendada']['hora']}".to_time)
     current_user.role == 'admin' ? @agendada.user = params['agendada']['user'] : @agendada.user = current_user.id
     @agendada.atend = params['agendada']['atend']
     @agendada.save ? flash.notice = "Agendado com Sucesso!" : flash.alert = "Agendamento falhou! Verificar!"
@@ -101,36 +100,6 @@ class AgendadasController < ApplicationController
     @agendada.destroy!
     redirect_to agendadas_path
   end
-
-  # def anotar
-  #   authorize Agendada
-  #   if params[:format] then @user = User.find(Agendada.find(params.values.last).user) # origem: linha do index
-  #   elsif params[:user] then @user = User.find(params[:user]) # origem: Ver Prontuários da Navbar
-  #   end
-  #   @agendadas = Agendada.select { |agendada| agendada.user == @user.id }.sort_by { |agendada| agendada.data_hora }
-  #   # render 'anotar'
-  # end
-
-  # def gravar
-  #   params.require(:agendada).permit(:anotacao, :user)
-  #   @agendadas = Agendada.select { |agendada|
-  #     agendada.user == params['agendada']['user'].to_i && agendada.data_hora < Time.now
-  #   }.sort_by { |agendada| agendada.data_hora }
-  #   if @agendadas.nil? || @agendadas.empty?
-  #     # @agendada = Agendada.select {
-  #     #   |agendada| agendada.user.nil? && agendada.data_hora < Time.now
-  #     #   }.sort_by { |agendada| agendada.data_hora }
-  #     @agendadas = [Agendada.create!(data_hora: Time.now)]
-  #   end
-  #   @agendada = @agendadas.last
-  #   @agendada.anotacao = params['agendada']['anotacao']
-  #   @agendada.user = params['agendada']['user'].to_i
-  #   @user = User.find(@agendada.user)
-  #   authorize @agendada
-  #   @agendada.save!
-  #   @agendadas = Agendada.select { |agendada| agendada.user == params['agendada']['user'].to_i }.sort_by { |agendada| agendada.data_hora }
-  #   render 'anotar'
-  # end
 
   
   private

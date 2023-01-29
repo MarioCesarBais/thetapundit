@@ -1,0 +1,18 @@
+<div class='container mt-5 text-center border border-primary rounded-5'>
+  <h1>Agenda de Eventos</h1>
+  <%= month_calendar(events: @meetings, attribute: :inicio, end_attribute: :fim) do |date, meetings| %>
+    <%= date.day %>
+
+    <% meetings.each do |meeting| %>
+      <div class='fw-bold'>
+        <%= link_to meeting.titulo, evento_path(meeting) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<% if user_signed_in? && current_user.role == "admin" %>
+  <div class="container mt-4">
+    <%= link_to "Criar Evento", new_evento_path, class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>

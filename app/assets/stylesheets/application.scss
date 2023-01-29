@@ -8,15 +8,18 @@
 // @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import "simple_calendar";
+
 // Your CSS partials
 @import "components/index";
 @import 'components/banner';
 @import 'components/footer';
 @import 'components/devise';
 @import 'components/flash';
+@import 'components/calendar';
+@import 'components/carousel';
 
 @import 'pages/cursos';
-@import 'pages/about';
 @import 'pages/contact';
 @import 'pages/home';
 @import 'adms';

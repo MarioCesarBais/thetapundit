@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :agendadas, only: [:index, :create, :edit, :destroy]
   resources :inscrs, only: :new
   resources :prontuarios
+  resources :eventos
   post 'distribui', to: 'agendadas#distribui'
   get 'distribui', to: 'agendadas#distribui'
   get 'agendar', to: 'agendadas#agendar'

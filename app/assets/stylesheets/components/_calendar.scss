@@ -1,0 +1,12 @@
+.simple-calendar th {
+    text-align: center;
+    // font-weight: bolder;
+}
+
+.simple-calendar {
+
+    .wday-0, .wday-6 {
+        background: linear-gradient(135deg, rgb(248, 113, 113), pink);
+    }
+
+}
