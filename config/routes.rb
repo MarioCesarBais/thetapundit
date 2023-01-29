@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   get 'about', controller: :pages, action: :about
   get 'constelacao', controller: :pages, action: :constelacao
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :cursos
   resources :agendadas, only: [:index, :create, :edit, :destroy]
   resources :inscrs, only: :new
   resources :prontuarios
   resources :eventos
+  resources :conceitos #, only: [:index, :show, :edit, :destroy]
   post 'distribui', to: 'agendadas#distribui'
   get 'distribui', to: 'agendadas#distribui'
   get 'agendar', to: 'agendadas#agendar'

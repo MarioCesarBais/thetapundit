@@ -1,0 +1,36 @@
+<div class='conceito-title'>
+  <h1>Conceitos</h1>
+  <div class="conceito-cards container">
+    <% if @conceitos %>
+    <% @conceitos.each do |conceito| %>
+      <div class="card curso">
+        <p class='font-weight-bolder' id='curso-descricao'> <%= conceito.descricao %> </p>
+
+        <div class="btn-group" role="group" aria-label="Exemplo básico">
+          <%= link_to "Mostrar", conceito_path(conceito),
+                      class: "btn btn-primary btn-sm",
+                      type: "button" %>
+          <% if user_signed_in? && current_user.role == "admin" %>
+            <%= link_to "Editar", edit_conceito_path(conceito),
+                        class: "btn btn-warning btn-sm",
+                        type: "button" %>
+
+            <%= link_to "Excluir",
+                        conceito_path(conceito),
+                        method: :delete,
+                        data: { confirm: "Certeza?" },
+                        class: "btn btn-danger btn-sm",
+                        type: "button" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? && current_user.role == "admin" %>
+  <div class="container mt-4">
+    <%= link_to "Criar Conceito", new_conceito_path, class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>
