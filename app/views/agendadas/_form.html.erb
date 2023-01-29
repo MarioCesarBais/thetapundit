@@ -1,5 +1,5 @@
-<h2 class='mt-5 text-center'>Operações com Agenda</h2>
-<%= form_with model: Agendada, url: distribui_path, method: :post, local: true do |form| %>
+<h2 class='mt-5 text-center border border-primary rounded-5'>Operações com Agenda</h2>
+<%= form_with model: Agendada, url: distribui_path, method: :post, local: true, class: 'border border-primary rounded-5' do |form| %>
   <div class="m-5">
     <%= form.label :data_inicio, "Data Inicial:" %>
     <span id='inicio'>

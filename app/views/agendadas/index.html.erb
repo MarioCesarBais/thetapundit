@@ -1,7 +1,7 @@
-<div class='card'>
+<div class='card1 container'>
 <% unless @agendadas.nil? || @agendadas.empty? %>
   <h1 class='title mt-3'>Agenda de Sessões</h1>
-  <table class="table table-bordered table-sm content">
+  <table class="table table-bordered table-sm content container">
     <tr>
       <th scope="col" class='border border-dark text-center'>Dia e Hora</th>
       <th scope="col" class='border border-dark text-center'>Cliente</th>
@@ -43,7 +43,7 @@
   <% else %>
     <h1 class='title m-3'>Agenda Vazia</h1>
   <% end %>
-  <div class='content'>
+  <div class='content container'>
     <%= render 'form' %>
   </div>
 </div>

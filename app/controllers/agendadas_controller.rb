@@ -82,7 +82,7 @@ class AgendadasController < ApplicationController
       return
     end
     params.require(:agendada).permit(:data, :hora, :user, :atend)
-    @agendada = Agendada.find_by(data_hora: params['agendada']['hora'].to_time)
+    @agendada = Agendada.find_by(data_hora: "#{params['agendada']['data']} #{params['agendada']['hora']}".to_time)
     current_user.role == 'admin' ? @agendada.user = params['agendada']['user'] : @agendada.user = current_user.id
     @agendada.atend = params['agendada']['atend']
     @agendada.save ? flash.notice = "Agendado com Sucesso!" : flash.alert = "Agendamento falhou! Verificar!"
