@@ -19,7 +19,14 @@ module ApplicationHelper
       'DNA_Basico.png',
       'mochila_livro.jpg',
       'par_medit2.jpg',
-      'par_medit3.jpg'
+      'par_medit3.jpg',
+      'pexels-belle-co-1000445.jpg',
+      'pexels-pixabay-158465.jpg',
+      'pexels-prasanth-inturi-1051838.jpg',
+      'pexels-rodnae-productions-7468213.jpg',
+      'pexels-this-is-zun-1164572.jpg',
+      'pexels-tima-miroshnichenko-5710976.jpg',
+      'pexels-tima-miroshnichenko-5711177.jpg'
     ],
 
     v: [
@@ -28,7 +35,11 @@ module ApplicationHelper
     'Formadas5.jpg',
     'Meditacao3Duplas.jpg',
     'MeditacaoemDupla.jpg',
-    'Meditando5.jpg'
+    'Meditando5.jpg',
+    'pexels-arthouse-studio-7363298.jpg',
+    'pexels-cottonbro-4056529.jpg',
+    'pexels-tima-miroshnichenko-5710956.jpg',
+    'pexels-tima-miroshnichenko-5711033.jpg'
     ]
   }
 
